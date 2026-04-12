@@ -6,39 +6,45 @@ import { Scissors, Palette, Music, Zap, Layers, Cpu } from "lucide-react";
 const services = [
   {
     title: "Cinematic Editing",
-    description: "Narrative-driven storytelling with a focus on rhythm, pacing, and emotional impact.",
+    description:
+      "Narrative-driven storytelling with a focus on rhythm, pacing, and emotional impact.",
     icon: Scissors,
   },
   {
     title: "Premium Color Grading",
-    description: "Advanced color correction and stylistic grading to achieve a high-end film look.",
+    description:
+      "Advanced color correction and stylistic grading to achieve a high-end film look.",
     icon: Palette,
   },
   {
     title: "Sound Design",
-    description: "Immersive audio soundscapes, foley, and sound effects that bring visuals to life.",
+    description:
+      "Immersive audio soundscapes, foley, and sound effects that bring visuals to life.",
     icon: Music,
   },
   {
     title: "VFX & Compositing",
-    description: "Seamless visual effects, cleanups, and complex composting for stunning results.",
+    description:
+      "Seamless visual effects, cleanups, and complex composting for stunning results.",
     icon: Zap,
   },
   {
     title: "Motion Graphics",
-    description: "Elegant and dynamic motion assets that enhance the overall viewer experience.",
+    description:
+      "Elegant and dynamic motion assets that enhance the overall viewer experience.",
     icon: Layers,
   },
   {
     title: "Technical Mastery",
-    description: "Expert proficiency in DaVinci Resolve, Premiere Pro, and After Effects.",
+    description:
+      "Expert proficiency in DaVinci Resolve, Premiere Pro, and After Effects.",
     icon: Cpu,
   },
 ];
 
 export default function Expertise() {
   return (
-    <section className="!max-w-7xl !mx-auto !px-4 sm:!px-8 lg:!px-10 !py-20 md:!py-32">
+    <section className="!max-w-7xl !mx-auto !px-4 sm:!px-8 lg:!px-10 !py-2 md:!py-4">
       <div className="!grid !grid-cols-1 lg:!grid-cols-2 !gap-12 md:!gap-20 !items-start">
         {/* Left side: Heading */}
         <div className="lg:!sticky !top-32">
@@ -51,7 +57,9 @@ export default function Expertise() {
             THROUGH ART.
           </h2>
           <p className="!text-neutral-400 !max-w-md !text-base md:!text-lg !leading-relaxed !mb-8 md:!mb-12">
-            We don't just cut clips; we build cinematic worlds. Every frame is analyzed, every sound is intentional, and every color is dialed for emotion.
+            We don't just cut clips; we build cinematic worlds. Every frame is
+            analyzed, every sound is intentional, and every color is dialed for
+            emotion.
           </p>
 
           <div className="!flex !items-center !gap-4 md:!gap-6 !p-5 md:!p-6 !rounded-3xl !border !border-white/5 !bg-white/[0.02] !w-fit mb-12 lg:mb-0">
@@ -59,8 +67,12 @@ export default function Expertise() {
               <div className="!w-2 !h-2 !rounded-full !bg-green-500 !animate-pulse" />
             </div>
             <div>
-              <p className="!text-sm !font-bold !text-white">Currently Booking</p>
-              <p className="!text-[10px] md:!text-xs !text-neutral-500">Next availability: June 2026</p>
+              <p className="!text-sm !font-bold !text-white">
+                Currently Booking
+              </p>
+              <p className="!text-[10px] md:!text-xs !text-neutral-500">
+                Next availability: June 2026
+              </p>
             </div>
           </div>
         </div>

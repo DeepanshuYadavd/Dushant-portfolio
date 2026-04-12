@@ -3,14 +3,7 @@
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import {
-  Home,
-  Briefcase,
-  Zap,
-  User,
-  Mail,
-  ArrowUpRight
-} from "lucide-react";
+import { Home, Briefcase, Zap, User, Mail, ArrowUpRight } from "lucide-react";
 
 const links = [
   { name: "Home", href: "/", icon: Home },
@@ -44,9 +37,10 @@ export default function Navbar() {
       >
         <div
           className={`relative overflow-hidden flex items-center justify-between !px-8 !py-3 rounded-full border transition-all duration-500
-            ${scrolled
-              ? "bg-white/10 backdrop-blur-2xl border-white/20 shadow-[0_0_40px_rgba(255,255,255,0.08)]"
-              : "bg-white/5 backdrop-blur-xl border-white/10"
+            ${
+              scrolled
+                ? "bg-white/10 backdrop-blur-2xl border-white/20 shadow-[0_0_40px_rgba(255,255,255,0.08)]"
+                : "bg-white/5 backdrop-blur-xl border-white/10"
             }`}
         >
           {/* LOGO */}
@@ -79,14 +73,19 @@ export default function Navbar() {
           </nav>
 
           {/* CTA */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-            className="relative z-10 flex items-center gap-2 !px-5 !py-2 rounded-full border border-white/10 bg-white text-black text-xs font-bold uppercase tracking-wider overflow-hidden group"
-          >
-            <span className="relative z-10">Showreel</span>
-            <ArrowUpRight size={14} className="relative z-10 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </motion.button>
+          <Link href="/showreels">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              className="relative z-10 flex items-center gap-2 !px-5 !py-2 rounded-full border border-white/10 bg-white text-black text-xs font-bold uppercase tracking-wider overflow-hidden group cursor-pointer"
+            >
+              <span className="relative z-10">Showreel</span>
+              <ArrowUpRight
+                size={14}
+                className="relative z-10 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </motion.button>
+          </Link>
         </div>
       </motion.header>
 
@@ -128,4 +127,3 @@ export default function Navbar() {
     </>
   );
 }
-

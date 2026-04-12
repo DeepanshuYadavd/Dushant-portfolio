@@ -2,37 +2,42 @@
 
 import { motion } from "framer-motion";
 import { Play, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 const projects = [
   {
     title: "The Urban Pulse",
     category: "Commercial • Short Film",
-    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1025",
+    image:
+      "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1025",
     color: "rgba(59, 130, 246, 0.5)",
   },
   {
     title: "Mountain Whisper",
     category: "Documentary • Travel",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1170",
+    image:
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1170",
     color: "rgba(168, 85, 247, 0.5)",
   },
   {
     title: "Neon Dreams",
     category: "Music Video • Creative",
-    image: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?auto=format&fit=crop&q=80&w=1170",
+    image:
+      "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?auto=format&fit=crop&q=80&w=1170",
     color: "rgba(236, 72, 153, 0.5)",
   },
   {
     title: "Velocity",
     category: "Automotive • High Energy",
-    image: "https://images.unsplash.com/photo-1544654803-b69140b285a1?auto=format&fit=crop&q=80&w=1170",
+    image:
+      "https://images.unsplash.com/photo-1544654803-b69140b285a1?auto=format&fit=crop&q=80&w=1170",
     color: "rgba(245, 158, 11, 0.5)",
   },
 ];
 
 export default function ProjectGrid() {
   return (
-    <section className="!max-w-7xl !mx-auto !px-4 sm:!px-8 lg:!px-10 !py-20 md:!py-32">
+    <section className="!max-w-7xl !mx-auto !px-4 sm:!px-8 lg:!px-10 !py-2 md:!py-2 ">
       <div className="!flex !flex-col md:!flex-row !items-start md:!items-end !justify-between !mb-12 md:!mb-20 !gap-6 md:!gap-8">
         <div className="!max-w-xl">
           <span className="!text-[10px] md:!text-xs !uppercase !tracking-[0.3em] !text-neutral-500 !font-bold !mb-3 md:!mb-4 !block">
@@ -43,7 +48,8 @@ export default function ProjectGrid() {
           </h2>
         </div>
         <p className="!text-neutral-400 !max-w-sm !text-base md:!text-lg !leading-relaxed">
-          A curated collection of high-impact visual narratives, commercials, and creative films.
+          A curated collection of high-impact visual narratives, commercials,
+          and creative films.
         </p>
       </div>
 
@@ -65,9 +71,11 @@ export default function ProjectGrid() {
             />
 
             {/* Hover overlay color gradient */}
-            <div 
+            <div
               className="!absolute !inset-0 !opacity-0 !transition-opacity !duration-500 group-hover:!opacity-100"
-              style={{ background: `linear-gradient(to top, ${project.color}, transparent)` }}
+              style={{
+                background: `linear-gradient(to top, ${project.color}, transparent)`,
+              }}
             />
 
             {/* Content overlay */}
@@ -99,13 +107,15 @@ export default function ProjectGrid() {
         ))}
       </div>
 
-      <div className="!mt-24 !text-center">
-        <button className="!group !relative !px-10 !py-5 !rounded-full !border !border-white/10 hover:!border-white/30 !transition-all !duration-300">
-          <span className="!relative !z-10 !text-neutral-400 group-hover:!text-white !font-bold !tracking-widest !uppercase !text-sm">
-            Explore All Projects
-          </span>
-          <div className="!absolute !inset-0 !bg-white/5 !scale-0 group-hover:!scale-100 !rounded-full !transition-transform !duration-300" />
-        </button>
+      <div className="!mt-8 !text-center ">
+        <Link href="/featured">
+          <button className="!group !relative !px-10 !py-5 !rounded-full !border !border-white/10 hover:!border-white/30 !transition-all !duration-300 cursor-pointer">
+            <span className="!relative !z-10 !text-neutral-400 group-hover:!text-white !font-bold !tracking-widest !uppercase !text-sm">
+              Explore All Projects
+            </span>
+            <div className="!absolute !inset-0 !bg-white/5 !scale-0 group-hover:!scale-100 !rounded-full !transition-transform !duration-300" />
+          </button>
+        </Link>
       </div>
     </section>
   );

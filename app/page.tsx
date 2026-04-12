@@ -5,12 +5,16 @@ import Hero from "@/components/home/Hero";
 import ProjectGrid from "@/components/home/ProjectGrid";
 import Expertise from "@/components/home/Expertise";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
   const marqueeItems = [
-    "ADOBE PREMIERE PRO", "DAVINCI RESOLVE", "AFTER EFFECTS",
-    "COLOR GRADING", "SOUND DESIGN", "VFX COMPOSITING",
-    "CINEMATIC STORYTELLING", "MOTION GRAPHICS"
+    "ADOBE PREMIERE PRO",
+    "AFTER EFFECTS",
+    "Video editing",
+    "Graphic designing",
+    "Motion graphics",
+    "Digital Animation",
   ];
 
   return (
@@ -25,7 +29,7 @@ export default function Home() {
           transition={{
             duration: 30,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           className="!flex !whitespace-nowrap !gap-12"
         >
@@ -47,7 +51,7 @@ export default function Home() {
       <Expertise />
 
       {/* FINAL CALL TO ACTION (CTA) */}
-      <section className="!py-32 !text-center !max-w-4xl !mx-auto !px-6">
+      <section className="!py-6 !text-center !max-w-4xl !mx-auto !px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,13 +65,16 @@ export default function Home() {
             LET'S <span className="!text-neutral-500">TELL</span> <br />
             YOUR STORY.
           </h2>
-          <button className="!group !relative !px-8 md:!px-12 !py-4 md:!py-6 !rounded-full !bg-white !text-black !font-black !tracking-widest !uppercase !text-base md:!text-lg !overflow-hidden !transition-shadow hover:!shadow-[0_0_50px_rgba(255,255,255,0.6)] !w-full sm:!w-auto">
-            <span className="!relative !z-10">Start a Project</span>
-            <div className="!absolute !inset-0 !bg-neutral-200 !scale-x-0 group-hover:!scale-x-100 !origin-left !transition-transform !duration-500" />
-          </button>
+          <Link href="/contact">
+            <button className="cursor-pointer !group !relative !px-8 md:!px-12 !py-4 md:!py-6 !rounded-full !bg-white !text-black !font-black !tracking-widest !uppercase !text-base md:!text-lg !overflow-hidden !transition-shadow hover:!shadow-[0_0_50px_rgba(255,255,255,0.6)] !w-full sm:!w-auto">
+              <span className="!relative !z-10">
+                Contact us & Start a Project
+              </span>
+              <div className="!absolute !inset-0 !bg-neutral-200 !scale-x-0 group-hover:!scale-x-100 !origin-left !transition-transform !duration-500" />
+            </button>
+          </Link>
         </motion.div>
       </section>
     </main>
   );
 }
-

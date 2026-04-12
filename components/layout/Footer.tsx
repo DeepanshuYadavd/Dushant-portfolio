@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Mail, Video, ArrowUpRight } from "lucide-react";
+import { Mail, Video, ArrowUpRight, MessageCircleMore } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="!relative !w-full !pt-20 !pb-10 !overflow-hidden !bg-black">
+    <footer className="!relative !w-full !pt-2 !pb- !overflow-hidden !bg-black ">
       {/* Background glow for premium feel */}
       <div className="!absolute !inset-0 !z-0 !pointer-events-none !flex !items-center !justify-center">
         <div className="!w-[600px] !h-[600px] !rounded-full !bg-white/5 !blur-[100px] !absolute !top-1/2 !-translate-y-1/2 !opacity-40" />
@@ -16,7 +16,6 @@ export default function Footer() {
 
       <div className="!max-w-7xl !mx-auto !px-4 sm:!px-6 lg:!px-8 !relative !z-10">
         <div className="!rounded-[2rem] !border !border-white/10 !bg-white/[0.02] !backdrop-blur-2xl !overflow-hidden !p-8 md:!p-16 !shadow-2xl !relative">
-
           {/* Noise effect */}
           <div className="!absolute !inset-0 !bg-gradient-to-br !from-white/[0.03] !to-transparent !pointer-events-none" />
 
@@ -35,19 +34,27 @@ export default function Footer() {
                 </h2>
               </Link>
               <p className="!text-neutral-400 !leading-relaxed !max-w-md !text-base md:!text-lg">
-                Professional cinematic editor delivering high-impact visual stories. Dedicated to the art of motion and rhythm.
+                Professional cinematic editor delivering high-impact visual
+                stories. Dedicated to the art of motion and rhythm.
               </p>
 
               <div className="!mt-10 !flex !gap-5">
                 {[
-
-                  { icon: Mail, href: "mailto:hello@editor.com" },
-                  { icon: Video, href: "/showreel" }
+                  {
+                    icon: Mail,
+                    href: "https://mail.google.com/mail/?view=cm&fs=1&to=yadavdushant588@gmail.com",
+                  },
+                  {
+                    icon: MessageCircleMore,
+                    href: "https://wa.me/917526989793?text=Hello%20Dushant",
+                  },
                 ].map((social, i) => (
                   <Link
                     key={i}
                     href={social.href}
-                    target={social.href.startsWith("http") ? "_blank" : undefined}
+                    target={
+                      social.href.startsWith("http") ? "_blank" : undefined
+                    }
                     className="!w-12 !h-12 !rounded-full !border !border-white/10 !flex !items-center !justify-center !text-neutral-400 hover:!text-white hover:!border-white/30 hover:!bg-white/10 !transition-all !duration-300"
                   >
                     <social.icon className="!w-5 !h-5" />
@@ -57,15 +64,19 @@ export default function Footer() {
             </div>
 
             {/* QUICK LINKS SECTION */}
-            <div className="lg:!col-span-3 lg:!col-start-7">
+            <div className="lg:!col-span-2 lg:!col-start-7">
               <h4 className="!text-xs !uppercase !tracking-[0.3em] !font-bold !text-neutral-500 !mb-8">
                 Menu
               </h4>
               <ul className="!space-y-5">
-                {["Home", "Featured Work", "Showreel", "About"].map((item) => (
+                {["Home", "Featured", "Showreels", "About"].map((item) => (
                   <li key={item}>
                     <Link
-                      href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+                      href={
+                        item === "Home"
+                          ? "/"
+                          : `/${item.toLowerCase().replace(" ", "-")}`
+                      }
                       className="!group !flex !items-center !text-base !text-neutral-400 hover:!text-white !transition-colors !w-fit"
                     >
                       <span className="!relative">
@@ -80,34 +91,44 @@ export default function Footer() {
             </div>
 
             {/* CONTACT CARD SECTION */}
-            <div className="lg:!col-span-3">
+            <div className="lg:!col-span-4 ">
               <h4 className="!text-xs !uppercase !tracking-[0.3em] !font-bold !text-neutral-500 !mb-8">
                 Contact
               </h4>
               <div className="!space-y-4">
                 <Link
-                  href="mailto:hello@editor.com"
-                  className="!group !flex !items-center !gap-4 !p-4 !rounded-2xl !bg-white/[0.03] !border !border-white/5 hover:!bg-white/[0.08] hover:!border-white/20 !transition-all !duration-300"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=yadavdushant588@gmail.com"
+                  target="_blank"
+                  className="  !group !flex  !items-center !gap-4 !p-4 !rounded-2xl !bg-white/[0.03] !border !border-white/5 hover:!bg-white/[0.08] hover:!border-white/20 !transition-all !duration-300"
                 >
                   <div className="!bg-white/10 !p-3 !rounded-xl !text-neutral-300 group-hover:!text-white !transition-colors">
                     <Mail className="!w-5 !h-5" />
                   </div>
                   <div>
-                    <p className="!text-sm !font-semibold !text-white">Email Me</p>
-                    <p className="!text-xs !text-neutral-500 !mt-1 group-hover:!text-neutral-400 !transition-colors">hello@editor.com</p>
+                    <p className="!text-sm !font-semibold !text-white">
+                      Email Me
+                    </p>
+                    <p className="!text-xs !text-neutral-500 !mt-1 group-hover:!text-neutral-400 !transition-colors">
+                      yadavdushant588@gmail.com
+                    </p>
                   </div>
                 </Link>
 
                 <Link
-                  href="/contact"
+                  href="https://wa.me/917526989793?text=Hello%20Dushant"
+                  target="_blank"
                   className="!group !flex !items-center !gap-4 !p-4 !rounded-2xl !bg-white/[0.03] !border !border-white/5 hover:!bg-white/[0.08] hover:!border-white/20 !transition-all !duration-300"
                 >
                   <div className="!bg-white/10 !p-3 !rounded-xl !text-neutral-300 group-hover:!text-white !transition-colors">
-                    <Video className="!w-5 !h-5" />
+                    <MessageCircleMore className="!w-5 !h-5" />
                   </div>
                   <div>
-                    <p className="!text-sm !font-semibold !text-white">Work Together</p>
-                    <p className="!text-xs !text-neutral-500 !mt-1 group-hover:!text-neutral-400 !transition-colors">Start a project</p>
+                    <p className="!text-sm !font-semibold !text-white">
+                      Work Together
+                    </p>
+                    <p className="!text-xs !text-neutral-500 !mt-1 group-hover:!text-neutral-400 !transition-colors">
+                      Start a project
+                    </p>
                   </div>
                 </Link>
               </div>
@@ -120,11 +141,7 @@ export default function Footer() {
               © {currentYear} Dushant • All rights reserved.
             </p>
 
-            <div className="!flex !gap-8 !text-[13px] !text-neutral-500">
-              <Link href="#" className="hover:!text-white !transition-colors">Privacy</Link>
-              <Link href="#" className="hover:!text-white !transition-colors">Terms</Link>
-              <Link href="#" className="hover:!text-white !transition-colors">Cookies</Link>
-            </div>
+            <div className="!flex !gap-8 !text-[13px] !text-neutral-500"></div>
           </div>
         </div>
       </div>

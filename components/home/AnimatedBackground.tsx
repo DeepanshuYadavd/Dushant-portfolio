@@ -1,11 +1,32 @@
 "use client";
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
+
+// Generate random values once outside the component
+const generateParticles = (count: number) => {
+  return Array.from({ length: count }, () => ({
+    initialX:
+      Math.random() *
+      (typeof window !== "undefined" ? window.innerWidth : 1000),
+    initialY:
+      Math.random() *
+      (typeof window !== "undefined" ? window.innerHeight : 1000),
+    initialOpacity: Math.random() * 0.5,
+    initialScale: Math.random() * 0.5 + 0.5,
+    animateY: Math.random() * -100 - 50,
+    duration: Math.random() * 10 + 10,
+    width: Math.random() * 2 + 1,
+    height: Math.random() * 2 + 1,
+  }));
+};
 
 export default function AnimatedBackground() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Memoize particles so they don't regenerate on every render
+  const particles = useMemo(() => generateParticles(20), []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -82,32 +103,28 @@ export default function AnimatedBackground() {
         className="absolute -bottom-[10%] left-[20%] w-[40%] h-[40%] rounded-full bg-white/5 blur-[120px]"
       />
 
-      {/* Floating Particles (Canvas would be more efficient, but let's use div for simplicity & better control for now) */}
-      {[...Array(20)].map((_, i) => (
+      {/* Floating Particles - Now using memoized values */}
+      {particles.map((particle, i) => (
         <motion.div
           key={i}
           initial={{
-            x:
-              Math.random() *
-              (typeof window !== "undefined" ? window.innerWidth : 1000),
-            y:
-              Math.random() *
-              (typeof window !== "undefined" ? window.innerHeight : 1000),
-            opacity: Math.random() * 0.5,
-            scale: Math.random() * 0.5 + 0.5,
+            x: particle.initialX,
+            y: particle.initialY,
+            opacity: particle.initialOpacity,
+            scale: particle.initialScale,
           }}
           animate={{
-            y: [null, Math.random() * -100 - 50],
-            opacity: [null, 0],
+            y: [particle.initialY, particle.animateY],
+            opacity: [particle.initialOpacity, 0],
           }}
           transition={{
-            duration: Math.random() * 10 + 10,
+            duration: particle.duration,
             repeat: Infinity,
             ease: "linear",
           }}
           style={{
-            width: Math.random() * 2 + 1 + "px",
-            height: Math.random() * 2 + 1 + "px",
+            width: `${particle.width}px`,
+            height: `${particle.height}px`,
             backgroundColor: "white",
             borderRadius: "50%",
             position: "absolute",
