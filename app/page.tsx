@@ -1,6 +1,5 @@
 "use client";
 
-import AnimatedBackground from "@/components/home/AnimatedBackground";
 import Hero from "@/components/home/Hero";
 import ProjectGrid from "@/components/home/ProjectGrid";
 import Expertise from "@/components/home/Expertise";

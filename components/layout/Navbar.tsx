@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -7,24 +8,31 @@ import { Home, Briefcase, Zap, User, Mail, ArrowUpRight } from "lucide-react";
 
 const links = [
   { name: "Home", href: "/", icon: Home },
-  { name: "Work", href: "featured", icon: Briefcase },
-  { name: "Skills", href: "skills", icon: Zap },
-  { name: "About", href: "about", icon: User },
-  { name: "Contact", href: "contact", icon: Mail },
+  { name: "Work", href: "/featured", icon: Briefcase },
+  { name: "Skills", href: "/skills", icon: Zap },
+  { name: "About", href: "/about", icon: User },
+  { name: "Contact", href: "/contact", icon: Mail },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("Home");
 
   useEffect(() => {
+    // Sync active state with current path
+    const currentLink = links.find(link => link.href === pathname);
+    if (currentLink) {
+      setActive(currentLink.name);
+    }
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   return (
     <>

@@ -52,3 +52,7 @@ html {
 .animate-shine {
   animation: shine 6s ease-in-out infinite;
 }
+
+.bg-grainy {
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
