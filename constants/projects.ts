@@ -76,9 +76,9 @@ export const REELS: Project[] = [
 
 export const YOUTUBE_VIDEOS: Project[] = [
   {
-    id: "rnG_tc3L4js",
+    id: "ZAoyhfPsnIM",
     type: "youtube",
-    url: "https://www.youtube.com/watch?v=rnG_tc3L4js",
+    url: "https://www.youtube.com/watch?v=ZAoyhfPsnIM",
     title: "Cinematic Narrative I",
     category: "Short Film",
   },
@@ -97,16 +97,16 @@ export const YOUTUBE_VIDEOS: Project[] = [
     category: "Music Video",
   },
   {
-    id: "47ij_Jno5tg",
+    id: "96hWhBhmrTc",
     type: "youtube",
-    url: "https://www.youtube.com/watch?v=47ij_Jno5tg",
+    url: "https://www.youtube.com/watch?v=96hWhBhmrTc",
     title: "Brand Essence IV",
     category: "Brand Story",
   },
   {
-    id: "N6KJa3vuhLc",
+    id: "1YKPl_tPBFg",
     type: "youtube",
-    url: "https://www.youtube.com/watch?v=N6KJa3vuhLc",
+    url: "https://www.youtube.com/watch?v=1YKPl_tPBFg",
     title: "Creative Flow V",
     category: "Experimental",
   },

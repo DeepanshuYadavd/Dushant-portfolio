@@ -109,6 +109,37 @@ export default function AboutPage() {
           </motion.div>
         </section>
 
+        {/* TEAM SECTION */}
+        <section className="!mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <h2 className="!text-2xl !font-bold !tracking-tight !mb-12 !uppercase !text-white/90">
+              The Team
+            </h2>
+            <div className="!grid !grid-cols-1 md:!grid-cols-2 !gap-8">
+              {[
+                { name: "Mohit Kumar", role: "Manager & Video Editor" },
+                { name: "Dushant", role: "Co-Manager & Video Editor" }
+              ].map((member, index) => (
+                <div key={index} className="!relative !p-10 !rounded-3xl !bg-white/[0.02] !border !border-white/[0.05] hover:!bg-white/[0.04] !transition-all !duration-500 !group !overflow-hidden">
+                  <div className="!absolute !top-0 !right-0 !p-6 !opacity-10 group-hover:!opacity-20 !transition-opacity">
+                    <Video size={80} />
+                  </div>
+                  <h3 className="!text-2xl !font-bold !text-white !mb-2 !tracking-tight">{member.name}</h3>
+                  <p className="!text-sm !text-neutral-500 !uppercase !tracking-[0.2em] !font-bold">{member.role}</p>
+                  
+                  {/* Subtle decorative line */}
+                  <div className="!w-12 !h-1 !bg-white/20 !mt-6 group-hover:!w-24 !transition-all !duration-500" />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+
         {/* CTA */}
         <section className="!pt-10 !border-t !border-white/10">
           <motion.div
